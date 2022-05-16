@@ -14,12 +14,10 @@ mojimoji-rs = "*"
 pub fn zen_to_han(text: String, ascii: bool, digit: bool, kana: bool) -> String
 ```
 ### Arguments
-```
 * `text` - text to convert.
 * `ascii` - indicates whether to convert ascii characters.
 * `digit` - indicates whether to convert digits.
 * `kana` - indicates whether to convert Japanese characters.
-```
 ### Examples
 ```rust
 use mojimoji_rs::zen_to_han;
@@ -35,12 +33,10 @@ assert_eq!(zen_to_han("アイウａｂｃ０１２".to_string(), false, true, tr
 pub fn han_to_zen(text: String, ascii: bool, digit: bool, kana: bool) -> String
 ```
 ### Arguments
-```
 * `text` - text to convert.
 * `ascii` - indicates whether to convert ascii characters.
 * `digit` - indicates whether to convert digits.
 * `kana` - indicates whether to convert Japanese characters.
-```
 ### Examples
 ```rust
 use mojimoji_rs::zen_to_han;
