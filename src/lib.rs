@@ -1,4 +1,4 @@
-//! This is a rust implementation of mojimoji.
+//! Rust implementation of a fast converter between Japanese hankaku and zenkaku characters, [mojimoji](https://github.com/studio-ousia/mojimoji).
 
 const ASCII_ZENKAKU_CHARS: [char; 85] = [
     'ａ', 'ｂ', 'ｃ', 'ｄ', 'ｅ', 'ｆ', 'ｇ', 'ｈ', 'ｉ', 'ｊ', 'ｋ',
@@ -70,6 +70,7 @@ const KANA_MARU_MAP: [(char, char); 5] = [
 /// * `ascii` - indicates whether to convert ascii characters.
 /// * `digit` - indicates whether to convert digits.
 /// * `kana` - indicates whether to convert Japanese characters.
+/// # Examples
 /// ```rust
 /// use mojimoji_rs::zen_to_han;
 /// assert_eq!(zen_to_han("アイウａｂｃ０１２".to_string(), true, true, true), "ｱｲｳabc012".to_string());
@@ -127,6 +128,7 @@ pub fn zen_to_han(text: String, ascii: bool, digit: bool, kana: bool) -> String 
 /// * `ascii` - indicates whether to convert ascii characters.
 /// * `digit` - indicates whether to convert digits.
 /// * `kana` - indicates whether to convert Japanese characters.
+/// # Examples
 /// ```rust
 /// use mojimoji_rs::han_to_zen;
 /// assert_eq!(han_to_zen("ｱｲｳabc012".to_string(), true, true, true), "アイウａｂｃ０１２".to_string());
