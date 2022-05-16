@@ -39,7 +39,7 @@ pub fn han_to_zen(text: String, ascii: bool, digit: bool, kana: bool) -> String
 * `kana` - indicates whether to convert Japanese characters.
 ### Examples
 ```rust
-use mojimoji_rs::zen_to_han;
+use mojimoji_rs::han_to_zen;
 assert_eq!(han_to_zen("ｱｲｳabc012".to_string(), true, true, true), "アイウａｂｃ０１２".to_string());
 assert_eq!(han_to_zen("ｱｲｳabc012".to_string(), true, true, false), "ｱｲｳａｂｃ０１２".to_string());
 assert_eq!(han_to_zen("ｱｲｳabc012".to_string(), true, false, true), "アイウａｂｃ012".to_string());
