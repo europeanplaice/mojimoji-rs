@@ -1,0 +1,12 @@
+[package]
+name = "mojimoji-rs"
+version = "0.1.0"
+edition = "2021"
+
+authors = ["Tomohiro Endo <europeanplaice@gmail.com>"]
+description = "Rust implementation of a fast converter between Japanese hankaku and zenkaku characters, mojimoji." 
+repository = "https://github.com/europeanplaice/mojimoji-rs"
+readme = "readme.md"
+license = "APACHE-2.0"
+
+[dependencies]
