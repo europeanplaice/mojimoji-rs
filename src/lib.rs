@@ -1,6 +1,6 @@
 //! Rust implementation of a fast converter between Japanese hankaku and zenkaku characters, [mojimoji](https://github.com/studio-ousia/mojimoji).
 
-const ASCII_ZENKAKU_CHARS: [char; 85] = [
+const ASCII_ZENKAKU_CHARS: [char; 86] = [
     'ａ', 'ｂ', 'ｃ', 'ｄ', 'ｅ', 'ｆ', 'ｇ', 'ｈ', 'ｉ', 'ｊ', 'ｋ',
     'ｌ', 'ｍ', 'ｎ', 'ｏ', 'ｐ', 'ｑ', 'ｒ', 'ｓ', 'ｔ', 'ｕ', 'ｖ',
     'ｗ', 'ｘ', 'ｙ', 'ｚ',
@@ -9,10 +9,11 @@ const ASCII_ZENKAKU_CHARS: [char; 85] = [
     'Ｗ', 'Ｘ', 'Ｙ', 'Ｚ',
     '！', '”', '＃', '＄', '％', '＆', '’', '（', '）', '＊', '＋',
     '，', '－', '．', '／', '：', '；', '＜', '＝', '＞', '？', '＠',
-    '［', '￥', '］', '＾', '＿', '‘', '｛', '｜', '｝', '～', '　'
+    '［', '￥', '］', '＾', '＿', '‘', '｛', '｜', '｝', '～', '　',
+    '＼'
 ];
 
-const ASCII_HANKAKU_CHARS: [char; 85] = [
+const ASCII_HANKAKU_CHARS: [char; 86] = [
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
     'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
     'w', 'x', 'y', 'z',
@@ -21,7 +22,8 @@ const ASCII_HANKAKU_CHARS: [char; 85] = [
     'W', 'X', 'Y', 'Z',
     '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+',
     ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@',
-    '[', '¥', ']', '^', '_', '`', '{', '|', '}', '~', ' '
+    '[', '¥', ']', '^', '_', '`', '{', '|', '}', '~', ' ',
+    '\\'
 ];
 
 const KANA_ZENKAKU_CHARS: [char; 63] = [
@@ -215,6 +217,10 @@ fn test_zen_to_han(){
     let zen = "あいうえお".to_string();
     let han = zen_to_han(zen, true, true, true);
     assert_eq!(han, "あいうえお".to_string());
+
+    let zen = "＼".to_string();
+    let han = zen_to_han(zen, true, true, true);
+    assert_eq!(han, "\\".to_string());
 }
 
 #[test]
@@ -250,4 +256,8 @@ fn test_han_to_zen(){
     let han = "ｱﾞｲﾞｳﾞｴﾞｵﾞ".to_string();
     let zen = han_to_zen(han, true, true, true);
     assert_eq!(zen, "ア゛イ゛ヴエ゛オ゛".to_string());
+
+    let han = "\\".to_string();
+    let zen = han_to_zen(han, true, true, true);
+    assert_eq!(zen, "＼".to_string());
 }
