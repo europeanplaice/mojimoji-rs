@@ -5,7 +5,7 @@ Rust implementation of a fast converter between Japanese hankaku and zenkaku cha
 In `Cargo.toml`,
 ```
 [dependencies]  
-mojimoji-rs = "*"
+mojimoji-rs = "0.1.1"
 ```
 
 ## Zenkaku to Hankaku
